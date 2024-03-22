@@ -1,0 +1,25 @@
+﻿@model WebAtividadeEntrevista.Models.ClienteModel
+@{
+    ViewBag.Title = "Alterar Cliente";
+}
+@section scripts{
+    <script>
+        var urlPost = '@Url.Action("Alterar", "Cliente", new { area = "" })';
+        var obj = @Html.Raw(Json.Encode(Model));
+        var urlRetorno = '@Url.Action("Index", "Cliente", new { area = "" })';
+    </script>
+    @Scripts.Render("~/bundles/altClientes")
+}
+<h2>@Html.Raw(ViewBag.Title)</h2>
+@Html.Partial("Forms")
+<!-- Botão Beneficiários -->
+<button type="button" class="btn btn-sm btn btn-light" id="btnBeneficiarios">Beneficiários</button>
+
+<!-- Modal para inclusão de beneficiários -->
+<div class="modal fade" id="modalBeneficiarios" tabindex="-1" role="dialog" aria-labelledby="modalBeneficiariosLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content" id="modalContent">
+            <div id="modalContainer"></div>
+        </div>
+    </div>
+</div>

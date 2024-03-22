@@ -1,0 +1,71 @@
+﻿
+
+<div class="modal-content">
+    <div class="modal-header">
+        <h5 class="modal-title">Beneficiários</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+
+
+        <!-- Formulário para cadastro de novo beneficiário -->
+        <form id="formBeneficiarios">
+
+            <div class="col-md-5">
+                <div class="form-group">
+                    <label for="cpfBeneficiario">CPF:</label>
+                    <input type="text" class="form-control" id="cpfBeneficiario" name="cpfBeneficiario" placeholder="999.999.999-99">
+                </div>
+            </div>
+
+            <div class="col-md-5">
+
+                <div class="form-group">
+                    <label for="nomeBeneficiario">Nome:</label>
+                    <input type="text" class="form-control" id="nomeBeneficiario" name="nomeBeneficiario">
+                </div>
+            </div>
+
+            <div class="modal-footer" style='border: none;'>
+                <button type="button" class="btn btn-success" id="btnAcaoBeneficiario">Incluir</button>
+                @*<button type="submit" class="btn btn-sm btn-success" id="btnAcaoBeneficiario">Incluir</button>*@
+            </div>
+        </form>
+
+
+        <!-- Grid de beneficiários -->
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>CPF</th>
+                    <th>Nome</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody id="gridBeneficiarios">
+
+                @foreach (var beneficiario in Model)
+                {
+                    <tr>
+                        <td>@beneficiario.CPF</td>
+                        <td>@beneficiario.Nome</td>
+
+                        <td>
+                            <button type="button" class="btn btn-primary btn-alterar" data-beneficiario-id="@beneficiario.Id">Alterar</button>
+                            <button type="button" class="btn btn-secondary btn-excluir" data-beneficiario-id="@beneficiario.Id">Excluir</button>
+                        </td>
+                    </tr>
+                }
+
+            </tbody>
+        </table>
+
+    </div>
+
+
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+    </div>
+</div>
